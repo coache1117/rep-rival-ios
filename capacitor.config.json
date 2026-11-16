@@ -1,0 +1,29 @@
+{
+  "appId": "com.myreprival.app",
+  "appName": "Rep Rival",
+  "webDir": "www",
+  "server": {
+    "url": "https://myreprival.netlify.app",
+    "allowNavigation": [
+      "myreprival.netlify.app",
+      "*.supabase.co",
+      "cdnjs.cloudflare.com"
+    ],
+    "errorPath": "offline.html"
+  },
+  "ios": {
+    "contentInset": "never",
+    "scheme": "RepRival"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 600,
+      "launchFadeOutDuration": 200,
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "overlaysWebView": true,
+      "style": "DARK"
+    }
+  }
+}
