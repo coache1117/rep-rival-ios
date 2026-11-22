@@ -1,4 +1,4 @@
-# Rep Rival - the iPhone app · RR30 (voice)
+# Rep Rival - the iPhone app · RR31 (R2)
 
 This folder is the iPhone wrapper for **myreprival.netlify.app**. The app opens the live site inside a real iPhone app.
 When you put a new build on the site, the app gets it too. No new upload needed for normal updates.
@@ -41,3 +41,9 @@ Rep Rival is the gym app.
 Tap the mic (bottom left) once, then say "Coach, ..." - the app keeps listening with the iPhone's own speech engine, and answers in Coach E's voice.
 The first time you tap the mic, the iPhone asks to allow the Microphone and Speech Recognition. Say Allow to both.
 New files: `native/`. The setup script adds them to the project by itself. If Codemagic stops at "could not point Main.storyboard", send Claude the log.
+
+
+## RR31 · R2 · the ears for real, plus the app link
+- The coach's ears are now attached two ways. If either piece is missing, Codemagic STOPS with a plain message instead of making an app that can't listen.
+- App link rivalrep:// - Club Rival's tile opens this app instead of the website.
+- Upload EVERYTHING in this zip to the repo (replace all), then Start new build in Codemagic.
