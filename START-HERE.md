@@ -1,4 +1,4 @@
-# Rep Rival - the iPhone app · RR31 (R2)
+# Rep Rival - the iPhone app · RR35 (R3)
 
 This folder is the iPhone wrapper for **myreprival.netlify.app**. The app opens the live site inside a real iPhone app.
 When you put a new build on the site, the app gets it too. No new upload needed for normal updates.
@@ -47,3 +47,9 @@ New files: `native/`. The setup script adds them to the project by itself. If Co
 - The coach's ears are now attached two ways. If either piece is missing, Codemagic STOPS with a plain message instead of making an app that can't listen.
 - App link rivalrep:// - Club Rival's tile opens this app instead of the website.
 - Upload EVERYTHING in this zip to the repo (replace all), then Start new build in Codemagic.
+
+
+## RR35 · R3 · the new icon and splash
+- New photo-style icon and a matching opening splash (black, the icon glowing in the middle).
+- The Club coach can send this app a command (rivalX://open?say=...), and it runs it the way it would if you said it here.
+- Upload EVERYTHING in this zip to the repo (replace all). Codemagic builds it.

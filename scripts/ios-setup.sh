@@ -30,7 +30,7 @@ grep -q 'customClass="RivalViewController"' "$SB" || { echo "RR30: could not poi
 node -e "const fs=require('fs'),f='ios/App/App/capacitor.config.json';const j=JSON.parse(fs.readFileSync(f,'utf8'));j.packageClassList=[...new Set([...(j.packageClassList||[]),'CoachSpeechPlugin'])];fs.writeFileSync(f,JSON.stringify(j,null,2))"
 grep -q '"CoachSpeechPlugin"' ios/App/App/capacitor.config.json || { echo "RR31: could not add CoachSpeechPlugin to capacitor.config.json"; exit 1; }
 for F in CoachSpeechPlugin.swift RivalViewController.swift; do grep -q "$F in Sources" ios/App/App.xcodeproj/project.pbxproj || { echo "RR31: $F is not in the app project"; exit 1; }; done
-grep -q "kit:'R2'" ios/App/App/RivalViewController.swift || { echo "RR31: old RivalViewController.swift - upload the whole zip again"; exit 1; }
+grep -q "kit:'R3'" ios/App/App/RivalViewController.swift || { echo "RR31: old RivalViewController.swift - upload the whole zip again"; exit 1; }
 /usr/libexec/PlistBuddy -c "Print :CFBundleURLTypes:0:CFBundleURLSchemes:0" "$P" | grep -qx "rivalrep" || { echo "RR31: app link rivalrep missing"; exit 1; }
 echo "RR31: ears attached two ways, app link rivalrep:// ready"
 pb ITSAppUsesNonExemptEncryption bool false

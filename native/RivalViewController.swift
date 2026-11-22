@@ -1,4 +1,4 @@
-// RIVAL · R2 · the main screen of every Rival iPhone app. Main.storyboard points here.
+// RIVAL · R3 (Club's coach can send a command: rivalX://open?say=...) · R2 · the main screen of every Rival iPhone app. Main.storyboard points here.
 // 1. Attaches the coach's ears (CoachSpeechPlugin) - unless Capacitor already attached them from capacitor.config.json.
 // 2. Tells the page which iPhone build it is in (window.RIVAL_NATIVE), so the page can show it when something is off.
 // 3. App links: when Club Rival opens this app with a link like rivalstride://open?do=walk, the page opens on that spot.
@@ -17,7 +17,7 @@ class RivalViewController: CAPBridgeViewController {
         let build = (info["CFBundleVersion"] as? String) ?? "?"
         let ver = (info["CFBundleShortVersionString"] as? String) ?? "?"
         let ears = bridge?.plugin(withName: "CoachSpeech") != nil
-        let js = "window.RIVAL_NATIVE={kit:'R2',ears:\(ears ? "true" : "false"),build:'\(build)',version:'\(ver)'};"
+        let js = "window.RIVAL_NATIVE={kit:'R3',ears:\(ears ? "true" : "false"),build:'\(build)',version:'\(ver)'};"
         webView?.configuration.userContentController.addUserScript(
             WKUserScript(source: js, injectionTime: .atDocumentStart, forMainFrameOnly: true))
         linkWatch = NotificationCenter.default.addObserver(forName: .capacitorOpenURL, object: nil, queue: .main) { [weak self] note in
@@ -36,10 +36,10 @@ class RivalViewController: CAPBridgeViewController {
     private func openLink(_ u: URL) {
         guard u.scheme?.hasPrefix("rival") == true,
               let q = URLComponents(url: u, resolvingAgainstBaseURL: false)?.queryItems,
-              q.contains(where: { $0.name == "do" }),
+              q.contains(where: { $0.name == "do" || $0.name == "say" }),
               let base = bridge?.config.serverURL,
               var c = URLComponents(url: base, resolvingAgainstBaseURL: false) else { return }
-        c.queryItems = q.filter { ["do", "go", "from"].contains($0.name) }
+        c.queryItems = q.filter { ["do", "go", "from", "say"].contains($0.name) }
         if let to = c.url { webView?.load(URLRequest(url: to)) }
     }
 }
