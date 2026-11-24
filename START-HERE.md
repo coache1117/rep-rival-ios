@@ -1,4 +1,4 @@
-# Rep Rival - the iPhone app · RR35 (R3)
+# Rep Rival - the iPhone app · RR39 (R4)
 
 This folder is the iPhone wrapper for **myreprival.netlify.app**. The app opens the live site inside a real iPhone app.
 When you put a new build on the site, the app gets it too. No new upload needed for normal updates.
@@ -53,3 +53,8 @@ New files: `native/`. The setup script adds them to the project by itself. If Co
 - New photo-style icon and a matching opening splash (black, the icon glowing in the middle).
 - The Club coach can send this app a command (rivalX://open?say=...), and it runs it the way it would if you said it here.
 - Upload EVERYTHING in this zip to the repo (replace all). Codemagic builds it.
+
+## RR39 · R4 · the dumbbell splash stays a little longer
+Coach E: "make the dumbbell splash just hang out a tad bit longer ... half a second longer, fade out."
+The splash now shows for 2 seconds (was 1.5) and fades out slowly (0.7 s, was 0.2). Upload this folder to GitHub rep-rival-ios, then Codemagic > Start new build.
+Everything else in Rep (TODAY = your workouts, Coach Mode, circuits) comes from the website - no new build needed for those.
